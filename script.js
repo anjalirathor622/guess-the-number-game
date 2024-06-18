@@ -10,11 +10,16 @@ const randomNum = Math.floor(Math.random()*100 + 1);
 var guess = document.getElementById('guess');
 // console.log(guess);
 var btn = document.getElementById("submit");
+var btn2 = document.getElementById("restart");
 var hint = document.getElementById('hint');
 var attempts = document.getElementById('attmpt');
 
 // addEventListener
-btn.addEventListener('click',()=>{
+btn.addEventListener('click',guessFunction);
+btn2.addEventListener('click',restartFunction);
+
+//functions
+function guessFunction(){
     const nmber = Number(guess.value);
     // console.log(nmber);
     attmps++
@@ -29,6 +34,7 @@ btn.addEventListener('click',()=>{
     // }else{
     //     hint.textContent = "Too low, try again!"
     // }
+   if(attmps<=6){
     switch(true){
         case (nmber > 100):
         hint.innerHTML = "choose between 1-100";
@@ -41,7 +47,16 @@ btn.addEventListener('click',()=>{
         break;
         case (nmber < randomNum):
         hint.textContent = "Too low, try again!" 
-        break;   
+        break;       
+        }
+    }else{
+        hint.textContent = "Too many failed attempts,Restart the game!" 
+        alert("Too many failed attempts,try again later!!!.") ; 
+        
     }
-    
-})
+   
+};
+
+function restartFunction(){
+    window.reload();
+}

@@ -23,12 +23,17 @@ input {
 
 button{
     padding: 15px 25px;
-    background-color: #000;
     color: #fff;
     border-radius: 5px;
     font-size: large;
     border-style: none;
     margin-top:10px;
+}
+button#submit{
+    background-color: green;
+}
+button#restart{
+    background-color: lightseagreen;
 }
 input::-webkit-inner-spin-button,
 input::-webkit-outer-spin-button{
